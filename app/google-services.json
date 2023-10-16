@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "705912836458",
+    "project_id": "wanderlust-cae07",
+    "storage_bucket": "wanderlust-cae07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705912836458:android:ab8d99e4dfc795550e5513",
+        "android_client_info": {
+          "package_name": "com.example.travelapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGamRBgds4z3krMLd-ESBDIaEeIuanBvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705912836458:android:eb7c6edfadf7f8f30e5513",
+        "android_client_info": {
+          "package_name": "main.example.wanderlust"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGamRBgds4z3krMLd-ESBDIaEeIuanBvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
