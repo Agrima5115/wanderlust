@@ -5,12 +5,10 @@ import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.R
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Visibility
@@ -52,14 +50,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
-
-
 import androidx.navigation.NavController
 import com.google.firebase.auth.FirebaseAuth
-
-
-
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -76,7 +68,6 @@ fun SignUp(navController: NavController) {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        // Your image composable here
         Image(
             painter = painterResource(id = com.example.wanderlust.R.drawable.img_4),
             contentDescription = null,
@@ -135,7 +126,7 @@ fun SignUp(navController: NavController) {
                         Icon(
                             imageVector = Icons.Default.Email,
                             contentDescription = "User Icon",
-                            tint = Color(0xFF6495ed)// Use the defined light blue color or another color
+                            tint = Color(0xFF6495ed)
                         )
                     },
                     modifier = Modifier
@@ -143,9 +134,7 @@ fun SignUp(navController: NavController) {
                         .width(280.dp),
                     colors = TextFieldDefaults.outlinedTextFieldColors(
                         textColor = Color.Black,
-
-                        // Set the leading icon color to light blue
-                        focusedLeadingIconColor = Color(0xFF1e90ff), // Set the trailing icon color to light blue
+                        focusedLeadingIconColor = Color(0xFF1e90ff),
                         focusedBorderColor = Color(0xFF6495ed),
                         unfocusedBorderColor = Color(0xFF6495ed),
 
@@ -170,9 +159,9 @@ fun SignUp(navController: NavController) {
                     },
                     leadingIcon = {
                         Icon(
-                            imageVector = Icons.Default.Lock, // Use the appropriate lock icon here
+                            imageVector = Icons.Default.Lock,
                             contentDescription = "Password Icon",
-                            tint = Color(0xFF6495ed)// Use the defined light blue color or another color
+                            tint = Color(0xFF6495ed)
                         )
                     },
                     keyboardOptions = KeyboardOptions(
@@ -186,8 +175,7 @@ fun SignUp(navController: NavController) {
                     ),
                     colors = TextFieldDefaults.outlinedTextFieldColors(
                         textColor = Color.Black,
-                        // Set the leading icon color to light blue
-                        focusedLeadingIconColor = Color(0xFF1e90ff), // Set the trailing icon color to light blue
+                        focusedLeadingIconColor = Color(0xFF1e90ff),
                         focusedBorderColor = Color(0xFF6495ed),
                         unfocusedBorderColor = Color(0xFF6495ed),
                     ),
@@ -223,9 +211,9 @@ fun SignUp(navController: NavController) {
                     },
                     leadingIcon = {
                         Icon(
-                            imageVector = Icons.Default.Lock, // Use the appropriate lock icon here
+                            imageVector = Icons.Default.Lock,
                             contentDescription = "Password Icon",
-                            tint = Color(0xFF6495ed)// Use the defined light blue color or another color
+                            tint = Color(0xFF6495ed)
                         )
                     },
                     keyboardOptions = KeyboardOptions(
@@ -239,8 +227,7 @@ fun SignUp(navController: NavController) {
                     ),
                     colors = TextFieldDefaults.outlinedTextFieldColors(
                         textColor = Color.Black,
-                        // Set the leading icon color to light blue
-                        focusedLeadingIconColor = Color(0xFF1e90ff), // Set the trailing icon color to light blue
+                        focusedLeadingIconColor = Color(0xFF1e90ff),
                         focusedBorderColor = Color(0xFF6495ed),
                         unfocusedBorderColor = Color(0xFF6495ed),
                     ),
@@ -273,13 +260,11 @@ fun SignUp(navController: NavController) {
                                 firebaseAuth.createUserWithEmailAndPassword(email, password)
                                     .addOnCompleteListener { task ->
                                         if (task.isSuccessful) {
-                                            // Handle successful sign-up
                                             navController.navigate("Login") // Navigate to sign-in screen
                                         } else {
-                                            // Handle sign-up failure
                                             Toast.makeText(
                                                 context,
-                                                "Sign-up failed. Please try again.",
+                                                "Sign-up failed. Password must be atleast 6 characters.",
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                         }
@@ -317,7 +302,7 @@ fun SignUp(navController: NavController) {
                     )
                     withStyle(
                         style = SpanStyle(
-                            color = Color.Blue, // Set the color for the SignUp text
+                            color = Color.Blue,
                             textDecoration = TextDecoration.Underline
                         )
                     ) {
@@ -335,10 +320,8 @@ fun SignUp(navController: NavController) {
                             tag = "SignIn", start = offset, end = offset
                         ).firstOrNull()?.let {
                             signUpClicked.value = !signUpClicked.value
-                            // Add navigation logic here
                             if (signUpClicked.value) {
                                 navController.navigate("Login")
-
                             }
                         }
                     }

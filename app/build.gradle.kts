@@ -54,6 +54,7 @@ android {
 dependencies {
 
     implementation("com.google.firebase:firebase-auth:22.2.0")
+    implementation("androidx.core:core-ktx:1.12.0")
     val navversion = "2.7.2"
     implementation("androidx.core:core-ktx:1.12.0")
     //noinspection GradleDependency

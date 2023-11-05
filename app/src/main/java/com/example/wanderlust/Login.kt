@@ -1,19 +1,13 @@
 package com.example.wanderlust
 
-import android.content.Intent
-import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.R
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Visibility
@@ -54,12 +48,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseAuth
-
-
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -74,7 +64,6 @@ fun Login(navController: NavHostController) {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        // Your image composable here
         Image(
             painter = painterResource(id = com.example.wanderlust.R.drawable.img_4),
             contentDescription = null,
@@ -126,7 +115,7 @@ fun Login(navController: NavHostController) {
                         Icon(
                             imageVector = Icons.Default.Email,
                             contentDescription = "User Icon",
-                            tint = Color(0xFF6495ed)// Use the defined light blue color or another color
+                            tint = Color(0xFF6495ed)
                         )
                     },
                     modifier = Modifier
@@ -134,9 +123,7 @@ fun Login(navController: NavHostController) {
                         .width(280.dp),
                     colors = TextFieldDefaults.outlinedTextFieldColors(
                         textColor = Color.Black,
-
-                        // Set the leading icon color to light blue
-                        focusedLeadingIconColor = Color(0xFF1e90ff), // Set the trailing icon color to light blue
+                        focusedLeadingIconColor = Color(0xFF1e90ff),
                         focusedBorderColor=  Color(0xFF6495ed),
                         unfocusedBorderColor = Color(0xFF6495ed),
 
@@ -155,9 +142,9 @@ fun Login(navController: NavHostController) {
                     },
                     leadingIcon = {
                         Icon(
-                            imageVector = Icons.Default.Lock, // Use the appropriate lock icon here
+                            imageVector = Icons.Default.Lock,
                             contentDescription = "Password Icon",
-                            tint = Color(0xFF6495ed)// Use the defined light blue color or another color
+                            tint = Color(0xFF6495ed)
                         )
                     },
                     keyboardOptions = KeyboardOptions(
@@ -171,8 +158,7 @@ fun Login(navController: NavHostController) {
                     ),
                     colors = TextFieldDefaults.outlinedTextFieldColors(
                         textColor = Color.Black,
-                        // Set the leading icon color to light blue
-                        focusedLeadingIconColor = Color(0xFF1e90ff), // Set the trailing icon color to light blue
+                        focusedLeadingIconColor = Color(0xFF1e90ff),
                         focusedBorderColor=  Color(0xFF6495ed),
                         unfocusedBorderColor = Color(0xFF6495ed),
                     ),
@@ -212,7 +198,7 @@ fun Login(navController: NavHostController) {
                         }
                     },
                 ) {
-                    // Button content here
+
                     Text(
                         "Login",
                         fontSize = 20.sp
@@ -231,7 +217,7 @@ fun Login(navController: NavHostController) {
                     )
                     withStyle(
                         style = SpanStyle(
-                            color = Color.Blue, // Set the color for the SignUp text
+                            color = Color.Blue,
                             textDecoration = TextDecoration.Underline
                         )
                     ) {
