@@ -254,7 +254,7 @@ fun ProfileScreen(navController: NavController) {
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .clip(RoundedCornerShape(90.dp))
-                                    .clickable { /* Handle click event */ }
+                                    .clickable { navController.navigate("VisitedPlaces") }
                             ) {
                                 Row(
                                     modifier = Modifier.padding(30.dp)
