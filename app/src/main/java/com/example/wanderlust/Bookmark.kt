@@ -69,7 +69,7 @@ fun Bookmark(navController: NavController) {
                     )
                 },
                 navigationIcon = {
-                    IconButton(onClick = { navController.navigate("HomeScreen") }) {
+                    IconButton(onClick = { navController.navigate("Search") }) {
                         Icon(
                             imageVector = Icons.Default.ArrowBack,
                             contentDescription = "Back",

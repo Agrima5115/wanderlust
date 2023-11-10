@@ -188,7 +188,7 @@ fun Login(navController: NavHostController) {
                             FirebaseAuth.getInstance().signInWithEmailAndPassword(username, password)
                                 .addOnCompleteListener { task ->
                                     if (task.isSuccessful) {
-                                        navController.navigate("Bookmark")
+                                        navController.navigate("Search")
                                     } else {
                                         Toast.makeText(context, "Authentication failed.", Toast.LENGTH_SHORT).show()
                                     }
