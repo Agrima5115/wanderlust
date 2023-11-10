@@ -60,7 +60,7 @@ import main.android.com.example.wanderlust.ui.theme.WANDERLUSTTheme
 
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(navController: NavController) {
     val profileImage = painterResource(R.drawable.profile_picture)
     val cityImage = painterResource(R.drawable.cityscape)
     val countryImage = painterResource(R.drawable.countries)
