@@ -1,4 +1,4 @@
-package main.android.com.example.wanderlust
+package com.example.wanderlust
 
 import android.os.Bundle
 
