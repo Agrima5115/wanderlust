@@ -26,6 +26,9 @@ fun myapp(){
         composable("Login"){ Login(navController)}
         composable("Bookmark"){ Bookmark(navController) }
         composable("ProfileScreen"){ProfileScreen(navController)}
+
+        composable("VisitedState"){VisitedState(navController)}
+
             composable("Search") {
                 // Include the Search composable here
                 Search(
