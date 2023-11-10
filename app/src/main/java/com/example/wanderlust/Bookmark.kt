@@ -102,49 +102,54 @@ fun Bookmark(navController: NavController) {
 
             }
         },
-            bottomBar = {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 16.dp, bottom = 5.dp, start = 10.dp, end = 10.dp)
-                        .background(Color.White),
-                    horizontalArrangement = Arrangement.SpaceEvenly,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconButton(onClick = {navController.navigate("HomeScreen")}) {
-                        Icon(
-                            imageVector = Icons.Default.Home,
-                            contentDescription = "location",
-                            tint = Color.Unspecified
-                        )
-                    }
-                    IconButton(onClick = {navController.navigate("Search")}) {
-                        Icon(
-                            imageVector = Icons.Default.Search,
-                            contentDescription = "location",
-                            tint = Color.Unspecified
-                        )
-                    }
-                        IconButton(onClick = { navController.navigate("Bookmark") }) {
-                            Icon(
-                                imageVector = Icons.Default.Bookmark,
-                                contentDescription = "location",
-                                tint = Color.Unspecified
-                            )
-                    }
-                    IconButton(onClick = {navController.navigate("Profile")}) {
-                        Icon(
-                            imageVector = Icons.Default.AccountCircle,
-                            contentDescription = "location",
-                            tint = Color.Unspecified
-                        )
+        bottomBar = {
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 1.dp, bottom = 1.dp, start = 1.dp, end = 1.dp)
+                    .background(Color.White),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+
+                IconButton(onClick = { navController.navigate("HomeScreen") }) {
+                    Icon(
+                        imageVector = Icons.Default.Home,
+                        contentDescription = "Home",
+                        tint = Color.Unspecified
+                    )
+                }
+                IconButton(onClick = { navController.navigate("Search") }) {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = "Search",
+                        tint = Color.Unspecified
+                    )
+                }
+                IconButton(onClick = { navController.navigate("Bookmark") }) {
+                    Icon(
+                        imageVector = Icons.Default.Bookmark,
+                        contentDescription = "Bookmark",
+                        tint = Color.Unspecified
+                    )
+                }
+                IconButton(onClick = { navController.navigate("ProfileScreen") }) {
+                    Icon(
+                        imageVector = Icons.Default.AccountCircle,
+                        contentDescription = "Profile",
+                        tint = Color.Unspecified
+                    )
+
+                }
 
                     }
                 }
-
-            }
     )
+
 }
+
+
 
 @Composable
 fun BookmarkItem(place: Place, onRemove: () -> Unit) {

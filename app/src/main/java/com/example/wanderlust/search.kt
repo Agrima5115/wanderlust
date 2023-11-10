@@ -1,4 +1,5 @@
 package com.example.wanderlust
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -16,20 +17,18 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
-import androidx.compose.material3.BottomAppBar
-import androidx.compose.ui.Alignment
-import com.example.wanderlust.ui.theme.WanderlustTheme
-import main.example.wanderlust.R
-
+import androidx.navigation.NavController
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -41,12 +40,12 @@ fun SearchField(onSearch: (String) -> Unit) {
         Color.LightGray
     }
 
-    var searchText by remember { mutableStateOf("Search") }
+    var searchText by remember { mutableStateOf("") }
 
     OutlinedTextField(
         value = searchText,
         onValueChange = { searchText = it },
-        label = { Text("Search") },
+        label = { Text(text="Search") },
         shape = MaterialTheme.shapes.medium,
         trailingIcon = {
             Icon(
@@ -218,115 +217,117 @@ fun SearchResults(results: List<String>) {
     }
 }
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Search(
     pressBack: () -> Unit,
     navToPlaceDetail: () -> Unit,
-    modifier: Modifier = Modifier
+    navController: NavController
 ) {
     val scrollState = rememberScrollState()
     val searchResults by remember { mutableStateOf(mutableListOf<String>()) }
+    var modifier = Modifier
 
-    Column(
-        verticalArrangement = Arrangement.spacedBy(32.dp),
-        modifier = modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
-            .padding(24.dp)
-            .verticalScroll(state = scrollState)
-    ) {
-        TopAppBar(
-            navigationIcon = {
-                IconButton(onClick = pressBack) {
-                    Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)
-                }
-            },
-            title = { Text("Wanderlust") },
-            actions = {
-                // Add a bookmark icon
-                IconButton(
-                    onClick = {
-                        // Handle bookmark icon click here
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    navigationIcon = {
+                        IconButton(onClick = pressBack) {
+                            Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)
+                        }
+                    },
+                    title = {
+                        Text(
+                            text = "Explore",
+                            style = MaterialTheme.typography.headlineMedium,
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 25.sp,
+                        )
+                    },
+                    actions = {
+                        // Add a bookmark icon
+                        IconButton(
+                            onClick = {
+                                navController.navigate("Bookmark")
+                            }
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Bookmark,
+                                contentDescription = null
+                            )
+                        }
                     }
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Bookmark,
-                        contentDescription = null
-                    )
-                }
+                )
+            },
+                content = {
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(32.dp),
+                        modifier = modifier
+                        .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.background)
+                        .padding(24.dp)
+                        .verticalScroll(state = scrollState)
+                    ){
+                        Spacer(modifier = Modifier.height(36.dp))
+                        SearchField { query ->
+                            // Perform search and update searchResults
+                            searchResults.clear()
+                            searchResults.addAll(listOf("Result 1", "Result 2", "Result 3")) // Simulated results
+                        }
+                        SearchResults(searchResults)
+                        NearBySection()
+                        RecentSearchSection(navToPlaceDetail)
+                        PopularSection()
+                        Spacer(modifier = Modifier.height(30.dp))
+                    }
+                },
+
+            bottomBar = {
+
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 1.dp, bottom = 1.dp, start = 1.dp, end = 1.dp)
+                            .background(Color.White),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+
+                        IconButton(onClick = { navController.navigate("HomeScreen") }) {
+                            Icon(
+                                imageVector = Icons.Default.Home,
+                                contentDescription = "Home",
+                                tint = Color.Unspecified
+                            )
+                        }
+                        IconButton(onClick = { navController.navigate("Search") }) {
+                            Icon(
+                                imageVector = Icons.Default.Search,
+                                contentDescription = "Search",
+                                tint = Color.Unspecified
+                            )
+                        }
+                        IconButton(onClick = { navController.navigate("Bookmark") }) {
+                            Icon(
+                                imageVector = Icons.Default.Bookmark,
+                                contentDescription = "Bookmark",
+                                tint = Color.Unspecified
+                            )
+                        }
+                        IconButton(onClick = { navController.navigate("ProfileScreen") }) {
+                            Icon(
+                                imageVector = Icons.Default.AccountCircle,
+                                contentDescription = "Profile",
+                                tint = Color.Unspecified
+                            )
+
+                        }
+                    }
+
+
             }
         )
-        SearchField { query ->
-            // Perform search and update searchResults
-            searchResults.clear()
-            searchResults.addAll(listOf("Result 1", "Result 2", "Result 3")) // Simulated results
+
         }
-        SearchResults(searchResults)
-        NearBySection()
-        RecentSearchSection(navToPlaceDetail)
-        PopularSection()
-    }
-//    Spacer(modifier = Modifier.weight(1f))
-//    Box(
-//        modifier = Modifier.fillMaxWidth()
-//    ) {
-//        BottomAppBar(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(16.dp)
-//        ) {
-//            Row(
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .padding(top = 16.dp, bottom = 5.dp),
-//                horizontalArrangement = Arrangement.SpaceEvenly,
-//                verticalAlignment = Alignment.CenterVertically
-//            ) {
-//                IconButton(onClick = { /* Navigate to HomeScreen */ }) {
-//                    Icon(
-//                        imageVector = Icons.Default.Home,
-//                        contentDescription = "Home",
-//                        tint = Color.Unspecified
-//                    )
-//                }
-//                IconButton(onClick = { /* Navigate to Search */ }) {
-//                    Icon(
-//                        imageVector = Icons.Default.Search,
-//                        contentDescription = "Search",
-//                        tint = Color.Unspecified
-//                    )
-//                }
-//                IconButton(onClick = { /* Navigate to Bookmark */ }) {
-//                    Icon(
-//                        imageVector = Icons.Default.Bookmark,
-//                        contentDescription = "Bookmark",
-//                        tint = Color.Unspecified
-//                    )
-//                }
-//                IconButton(onClick = { /* Navigate to Profile */ }) {
-//                    Icon(
-//                        imageVector = Icons.Default.AccountCircle,
-//                        contentDescription = "Profile",
-//                        tint = Color.Unspecified
-//                    )
-//                }
-//            }
-//        }
-//    }
-}
 
-
-
-@Preview(showBackground = true)
-@Composable
-fun SearchScreenPreview() {
-    val searchResults = listOf("Result 1", "Result 2", "Result 3")
-    WanderlustTheme {
-        Search(
-            pressBack = {},
-            navToPlaceDetail = {},
-            modifier = Modifier.fillMaxSize()
-        )
-    }
-}

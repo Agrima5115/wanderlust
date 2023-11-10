@@ -25,6 +25,14 @@ fun myapp(){
         composable("SignUp"){ SignUp(navController)}
         composable("Login"){ Login(navController)}
         composable("Bookmark"){ Bookmark(navController) }
+        composable("ProfileScreen"){ ProfileScreen(navController) }
+        composable("Search") {
+            Search(
+                pressBack = { navController.popBackStack() },
+                navToPlaceDetail = { /* handle navigation to place detail */ },
+                navController,
+            )
+        }
     }
 }
 

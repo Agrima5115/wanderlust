@@ -54,7 +54,7 @@ fun Welcome(navController: NavController) {
 
                 colors = ButtonDefaults.buttonColors( Color(0xFF4169e1),
                     contentColor = Color.White),
-                onClick = { navController.navigate("Login") },
+                onClick = { navController.navigate("Bookmark") },
             ) {
                 Text(
                     "Get Started",
