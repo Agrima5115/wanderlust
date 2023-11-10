@@ -56,7 +56,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import main.android.com.example.wanderlust.ui.theme.WANDERLUSTTheme
+import androidx.navigation.NavController
 
 
 @Composable
