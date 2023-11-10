@@ -217,7 +217,9 @@ fun SearchResults(results: List<String>) {
     }
 }
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "SuspiciousIndentation")
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "SuspiciousIndentation",
+    "MutableCollectionMutableState"
+)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Search(
@@ -227,7 +229,7 @@ fun Search(
 ) {
     val scrollState = rememberScrollState()
     val searchResults by remember { mutableStateOf(mutableListOf<String>()) }
-    var modifier = Modifier
+    val modifier = Modifier
 
         Scaffold(
             topBar = {

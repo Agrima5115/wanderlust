@@ -44,7 +44,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.wanderlust.R
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -69,11 +68,13 @@ fun ProfileScreen(navController: NavController) {
                             modifier = Modifier
                                 .padding(horizontal = 16.dp)
                         ) {
+                            IconButton(onClick = { navController.navigate("Search") }) {
                             Icon(
                                 imageVector = Icons.Default.ArrowBack,
                                 contentDescription = null,
                                 modifier = Modifier.size(30.dp)
                             )
+                        }
                             // Profile picture
                             Box(
                                 modifier = Modifier
