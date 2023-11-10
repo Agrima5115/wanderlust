@@ -44,6 +44,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.wanderlust.R
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -68,13 +69,11 @@ fun ProfileScreen(navController: NavController) {
                             modifier = Modifier
                                 .padding(horizontal = 16.dp)
                         ) {
-                            IconButton(onClick = { navController.navigate("Search") }) {
                             Icon(
                                 imageVector = Icons.Default.ArrowBack,
                                 contentDescription = null,
                                 modifier = Modifier.size(30.dp)
                             )
-                        }
                             // Profile picture
                             Box(
                                 modifier = Modifier
@@ -182,11 +181,14 @@ fun ProfileScreen(navController: NavController) {
                             Spacer(modifier = Modifier.height(30.dp))
 
                             // Card 1
+
                             Card(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .clip(RoundedCornerShape(90.dp))
-                                    .clickable { /* Handle click event */ }
+                                    .clickable {
+                                        navController.navigate("VisitedCountry")
+                                    }
                             ) {
                                 Row(
                                     modifier = Modifier.padding(30.dp)
@@ -202,7 +204,7 @@ fun ProfileScreen(navController: NavController) {
                                         text = "Visited Country",
                                         style = MaterialTheme.typography.headlineSmall.copy(
                                             fontWeight = FontWeight.Bold
-                                        ), // Make the text bold
+                                        ),
                                     )
                                     Spacer(modifier = Modifier.width(20.dp))
                                     Icon(
@@ -212,6 +214,7 @@ fun ProfileScreen(navController: NavController) {
                                     )
                                 }
                             }
+
 
                             Spacer(modifier = Modifier.height(16.dp))
 
