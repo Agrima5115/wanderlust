@@ -59,8 +59,6 @@ fun ProfileScreen(navController: NavController) {
     val galleryImage = painterResource(R.drawable.gallery)
     val mapImage = painterResource(R.drawable.map)
     val worldImage = painterResource(R.drawable.worldmap)
-
-
     Scaffold(
         content={
             LazyColumn(

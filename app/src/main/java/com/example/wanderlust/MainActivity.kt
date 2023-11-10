@@ -35,7 +35,6 @@ fun myapp(){
         }
     }
 }
-
 class MainActivity:ComponentActivity(){
     private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState:Bundle?){
