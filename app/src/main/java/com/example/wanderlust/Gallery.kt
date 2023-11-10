@@ -114,7 +114,6 @@ fun VisitedPlaceItem(visitedPlace: VisitedPlace) {
         }
     }
 }
-
 @RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
