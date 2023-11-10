@@ -148,7 +148,6 @@ fun Bookmark(navController: NavController) {
     )
 
 }
-
 @Composable
 fun BookmarkItem(place: Place, onRemove: () -> Unit) {
     Card(

@@ -44,14 +44,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.google.android.material.bottomappbar.BottomAppBar
+import com.example.wanderlust.R
 
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun ProfileScreen(navController: NavController) {
-    val context = LocalContext.current
     val profileImage = painterResource(R.drawable.profile_picture)
     val cityImage = painterResource(R.drawable.cityscape)
     val countryImage = painterResource(R.drawable.countries)
@@ -59,8 +58,9 @@ fun ProfileScreen(navController: NavController) {
     val galleryImage = painterResource(R.drawable.gallery)
     val mapImage = painterResource(R.drawable.map)
     val worldImage = painterResource(R.drawable.worldmap)
+    val context = LocalContext.current
     Scaffold(
-        content={
+        content = {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 content = {
@@ -69,13 +69,11 @@ fun ProfileScreen(navController: NavController) {
                             modifier = Modifier
                                 .padding(horizontal = 16.dp)
                         ) {
-                            IconButton(onClick = { navController.navigate("Bookmark") }) {
-                                Icon(
-                                    imageVector = Icons.Default.ArrowBack,
-                                    contentDescription = null,
-                                    modifier = Modifier.size(30.dp)
-                                )
-                            }
+                            Icon(
+                                imageVector = Icons.Default.ArrowBack,
+                                contentDescription = null,
+                                modifier = Modifier.size(30.dp)
+                            )
                             // Profile picture
                             Box(
                                 modifier = Modifier
@@ -147,7 +145,9 @@ fun ProfileScreen(navController: NavController) {
                                         Spacer(modifier = Modifier.width(8.dp))
                                         Text(
                                             text = "Country",
-                                            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold), // Make the text bold
+                                            style = MaterialTheme.typography.bodyMedium.copy(
+                                                fontWeight = FontWeight.Bold
+                                            ), // Make the text bold
                                         )
                                         Text(
                                             text = "22+",
@@ -199,7 +199,9 @@ fun ProfileScreen(navController: NavController) {
                                     Spacer(modifier = Modifier.width(30.dp))
                                     Text(
                                         text = "Visited Country",
-                                        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold), // Make the text bold
+                                        style = MaterialTheme.typography.headlineSmall.copy(
+                                            fontWeight = FontWeight.Bold
+                                        ), // Make the text bold
                                     )
                                     Spacer(modifier = Modifier.width(20.dp))
                                     Icon(
@@ -231,7 +233,9 @@ fun ProfileScreen(navController: NavController) {
                                     Spacer(modifier = Modifier.width(30.dp))
                                     Text(
                                         text = "Visited City      ",
-                                        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold), // Make the text bold
+                                        style = MaterialTheme.typography.headlineSmall.copy(
+                                            fontWeight = FontWeight.Bold
+                                        ), // Make the text bold
                                     )
                                     Spacer(modifier = Modifier.width(30.dp))
                                     Icon(
@@ -263,7 +267,9 @@ fun ProfileScreen(navController: NavController) {
                                     Spacer(modifier = Modifier.width(30.dp))
                                     Text(
                                         text = "Photo Gallery  ",
-                                        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold), // Make the text bold
+                                        style = MaterialTheme.typography.headlineSmall.copy(
+                                            fontWeight = FontWeight.Bold
+                                        ), // Make the text bold
                                     )
                                     Spacer(modifier = Modifier.width(30.dp))
                                     Icon(
@@ -281,15 +287,8 @@ fun ProfileScreen(navController: NavController) {
                                     .fillMaxWidth()
                                     .clip(RoundedCornerShape(90.dp))
                                     .clickable {
-                                        context.startActivity(
-                                            Intent(
-                                                Intent.ACTION_VIEW,
-                                                Uri.parse("https://maps.google.com/")
-                                            )
-                                        )
+                                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://maps.google.com/")))
                                     }
-
-
                             ) {
                                 Row(
                                     modifier = Modifier.padding(30.dp)
@@ -303,7 +302,9 @@ fun ProfileScreen(navController: NavController) {
                                     Spacer(modifier = Modifier.width(30.dp))
                                     Text(
                                         text = "Trips Map        ",
-                                        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold), // Make the text bold
+                                        style = MaterialTheme.typography.headlineSmall.copy(
+                                            fontWeight = FontWeight.Bold
+                                        ), // Make the text bold
                                     )
                                     Spacer(modifier = Modifier.width(38.dp))
                                     Icon(
@@ -311,64 +312,61 @@ fun ProfileScreen(navController: NavController) {
                                         contentDescription = null,
                                         modifier = Modifier.size(30.dp)
                                     )
-
                                 }
-
                             }
-
                         }
                         Spacer(modifier = Modifier.height(48.dp))
                     }
 
-
                 }
-
             )
-
         },
         bottomBar = {
 
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 1.dp, bottom = 1.dp, start = 1.dp, end = 1.dp)
-                        .background(Color.White),
-                    horizontalArrangement = Arrangement.SpaceEvenly,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 1.dp, bottom = 1.dp, start = 1.dp, end = 1.dp)
+                    .background(Color.White),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
 
-                    IconButton(onClick = { navController.navigate("HomeScreen") }) {
-                        Icon(
-                            imageVector = Icons.Default.Home,
-                            contentDescription = "Home",
-                            tint = Color.Unspecified
-                        )
-                    }
-                    IconButton(onClick = { navController.navigate("Search") }) {
-                        Icon(
-                            imageVector = Icons.Default.Search,
-                            contentDescription = "Search",
-                            tint = Color.Unspecified
-                        )
-                    }
-                    IconButton(onClick = { navController.navigate("Bookmark") }) {
-                        Icon(
-                            imageVector = Icons.Default.Bookmark,
-                            contentDescription = "Bookmark",
-                            tint = Color.Unspecified
-                        )
-                    }
-                    IconButton(onClick = { navController.navigate("ProfileScreen") }) {
-                        Icon(
-                            imageVector = Icons.Default.AccountCircle,
-                            contentDescription = "Profile",
-                            tint = Color.Unspecified
-                        )
-
-                    }
+                IconButton(onClick = { navController.navigate("HomeScreen") }) {
+                    Icon(
+                        imageVector = Icons.Default.Home,
+                        contentDescription = "Home",
+                        tint = Color.Unspecified
+                    )
                 }
+                IconButton(onClick = { navController.navigate("Search") }) {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = "Search",
+                        tint = Color.Unspecified
+                    )
+                }
+                IconButton(onClick = { navController.navigate("Bookmark") }) {
+                    Icon(
+                        imageVector = Icons.Default.Bookmark,
+                        contentDescription = "Bookmark",
+                        tint = Color.Unspecified
+                    )
+                }
+                IconButton(onClick = { navController.navigate("ProfileScreen") }) {
+                    Icon(
+                        imageVector = Icons.Default.AccountCircle,
+                        contentDescription = "Profile",
+                        tint = Color.Unspecified
+                    )
+
+                }
+
             }
+        }
     )
 
+
 }
+
 
