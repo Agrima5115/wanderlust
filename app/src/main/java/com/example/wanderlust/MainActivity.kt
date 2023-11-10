@@ -25,7 +25,7 @@ fun myapp(){
         composable("SignUp"){ SignUp(navController)}
         composable("Login"){ Login(navController)}
         composable("Bookmark"){ Bookmark(navController)}
-        composable("Profile"){ Profile(navController)}
+        composable("ProfileScreen"){ ProfileScreen(navController)}
     }
 }
 
