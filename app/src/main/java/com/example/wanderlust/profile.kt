@@ -92,13 +92,13 @@ fun ProfileScreen(navController: NavController) {
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
 
-                                text = "Chandra Vamsy",
+                                text = "Walter White",
                                 style = MaterialTheme.typography.headlineMedium,
                                 modifier = Modifier.align(Alignment.CenterHorizontally)
 
                             )
                             Text(
-                                text = "Web Developer",
+                                text = "App Developer",
                                 style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold), // Make the text bold
                                 modifier = Modifier.align(Alignment.CenterHorizontally)
                             )
