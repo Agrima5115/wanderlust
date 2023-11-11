@@ -73,7 +73,7 @@ fun SplashScreen(navController: NavController) {
 
             Button(
                 onClick = {
-                    navController.navigate("HomeScreen")
+                    navController.navigate("Login")
                 },
                 modifier = Modifier
                     .padding(8.dp, 24.dp)
