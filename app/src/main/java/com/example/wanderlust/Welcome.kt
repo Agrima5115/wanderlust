@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -41,28 +42,30 @@ fun Welcome(navController: NavController) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp)
+                .fillMaxWidth()
+
                 .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.End
+            verticalArrangement = Arrangement.Bottom,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(270.dp))
 
             Button(
                 modifier = Modifier
-                    .width(190.dp)
+                    .fillMaxWidth()
                     .height(56.dp)
-                    .padding(start = 0.dp, end = 16.dp),
+                    .padding(start = 16.dp, end = 16.dp),
 
                 colors = ButtonDefaults.buttonColors( Color(0xFF4169e1),
                     contentColor = Color.White),
-                onClick = { navController.navigate("Login") },
+                onClick = { navController.navigate("SplashScreen") },
             ) {
                 Text(
                     "Get Started",
                     fontSize = 20.sp
                 )
             }
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }

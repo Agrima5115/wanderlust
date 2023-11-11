@@ -26,7 +26,7 @@ import com.google.accompanist.coil.rememberCoilPainter
 @Composable
 fun SplashScreen(navController: NavController) {
 
-    var splashUrl = R.drawable.explore
+    val splashUrl = R.drawable.explore
 
     Box(
         modifier = Modifier
@@ -73,7 +73,7 @@ fun SplashScreen(navController: NavController) {
 
             Button(
                 onClick = {
-                    navController.navigate("home")
+                    navController.navigate("HomeScreen")
                 },
                 modifier = Modifier
                     .padding(8.dp, 24.dp)

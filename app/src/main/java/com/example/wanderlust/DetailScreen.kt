@@ -1,5 +1,6 @@
 package com.example.wanderlust
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -25,24 +26,83 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.google.accompanist.coil.rememberCoilPainter
+import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun DetailScreen(navController: NavController) {
+    Scaffold(
+        content = {
+            LazyColumn() {
 
-    LazyColumn() {
+                item {
+                    DetailHeader(navController)
+                    TripInfoContent()
 
-        item {
-            DetailHeader(navController)
-            TripInfoContent()
+                }
+
+                itemsIndexed(tripDays) { position, data ->
+                    TripDayContent(data)
+
+
+                }
+                item {
+                    Spacer(modifier = Modifier.navigationBarsPadding())
+                    Spacer(modifier = Modifier.height(38.dp))
+                }
+
+            }
+
+
+        },
+            bottomBar = {
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 1.dp, bottom = 1.dp, start = 1.dp, end = 1.dp)
+                        .background(Color.White),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = CenterVertically
+                ) {
+                    androidx.compose.material3.IconButton(onClick = { navController.navigate("HomeScreen") }) {
+                        androidx.compose.material3.Icon(
+                            imageVector = Icons.Default.Home,
+                            contentDescription = "Home",
+                            tint = Color.Unspecified
+                        )
+                    }
+                    androidx.compose.material3.IconButton(onClick = { navController.navigate("Search") }) {
+                        androidx.compose.material3.Icon(
+                            imageVector = Icons.Default.Search,
+                            contentDescription = "Search",
+                            tint = Color.Unspecified
+                        )
+                    }
+                    androidx.compose.material3.IconButton(onClick = { navController.navigate("Bookmark") }) {
+                        androidx.compose.material3.Icon(
+                            imageVector = Icons.Default.Bookmark,
+                            contentDescription = "Bookmark",
+                            tint = Color.Unspecified
+                        )
+                    }
+                    androidx.compose.material3.IconButton(onClick = { navController.navigate("ProfileScreen") }) {
+                        androidx.compose.material3.Icon(
+                            imageVector = Icons.Default.AccountCircle,
+                            contentDescription = "Profile",
+                            tint = Color.Unspecified
+                        )
+
+                    }
+
+                }
+            }
+            )
+
+
         }
 
-        itemsIndexed(tripDays) { position, data ->
-            TripDayContent(data)
-        }
-
-    }
-}
 
 @Composable
 fun DetailHeader(navController: NavController) {
@@ -116,7 +176,7 @@ fun TripInfoContent() {
 
             Text(
                 text = "4.8 (2.5k reviews)",
-                fontFamily = FontFamily.Cursive,
+                fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 12.sp
             )
@@ -209,7 +269,7 @@ fun TripDayContent(day: TripDayData) {
         Text(
             text = day.title.uppercase(),
             fontSize = 14.sp,
-            fontFamily = FontFamily.Cursive,
+            fontFamily = FontFamily.SansSerif,
             fontWeight = FontWeight.ExtraBold,
             letterSpacing = 0.75.sp
         )
@@ -219,7 +279,7 @@ fun TripDayContent(day: TripDayData) {
         Text(
             text = day.detail,
             fontSize = 14.sp,
-            fontFamily = FontFamily.Cursive,
+            fontFamily = FontFamily.Default,
             fontWeight = FontWeight.Light,
             lineHeight = 18.sp
         )
@@ -250,14 +310,14 @@ fun TripDataItem(imageVector: ImageVector, title: String, subtitle: String) {
             Text(
                 text = title,
                 fontSize = 12.sp,
-                fontFamily = FontFamily.Cursive,
+                fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.ExtraBold
             )
 
             Text(
                 text = subtitle,
                 fontSize = 14.sp,
-                fontFamily = FontFamily.Cursive,
+                fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.Normal
             )
         }
@@ -289,7 +349,7 @@ fun LocationChip(text: String) {
 
         Text(
             text = text,
-            fontFamily = FontFamily.Cursive,
+            fontFamily = FontFamily.SansSerif,
             fontWeight = FontWeight.SemiBold,
             fontSize = 12.sp,
             color = Color.Black

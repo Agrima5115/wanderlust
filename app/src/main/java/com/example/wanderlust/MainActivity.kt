@@ -27,11 +27,12 @@ fun myapp(){
         composable("Welcome"){Welcome(navController)}
         composable("SignUp"){ SignUp(navController)}
         composable("Login"){ Login(navController)}
-        composable("HomeScreen"){ Bookmark(navController) }
-        composable("DetailScreen"){ Bookmark(navController) }
-        composable("SplashScreen"){ Bookmark(navController) }
+        composable("HomeScreen"){ HomeScreen(navController) }
+        composable("DetailScreen"){ DetailScreen(navController) }
+        composable("SplashScreen"){ SplashScreen(navController) }
         composable("Bookmark"){ Bookmark(navController) }
         composable("ProfileScreen"){ProfileScreen(navController)}
+        composable("SettingsScreen"){SettingsScreen(navController)}
 
 
             composable("Search") {

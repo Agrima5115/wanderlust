@@ -1,6 +1,8 @@
 package com.example.wanderlust
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,6 +13,9 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
@@ -30,10 +35,13 @@ import com.google.accompanist.coil.rememberCoilPainter
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
 
+@OptIn(ExperimentalMaterial3Api::class)
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(navController: NavController) {
 
-
+    Scaffold(
+        content = {
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
 
 
@@ -46,7 +54,7 @@ fun HomeScreen(navController: NavController) {
                 text = "THAI WEEK SPECIAL",
                 color = Color.Black,
                 fontFamily = FontFamily.Cursive,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.ExtraBold,
                 fontSize = 14.sp,
                 modifier = Modifier.padding(
                     top = 20.dp,
@@ -62,9 +70,59 @@ fun HomeScreen(navController: NavController) {
 
         item {
             Spacer(modifier = Modifier.navigationBarsPadding())
+            Spacer(modifier = Modifier.height(48.dp))
         }
 
+
     }
+
+
+},
+        bottomBar = {
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 1.dp, bottom = 1.dp, start = 1.dp, end = 1.dp)
+                    .background(Color.White),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+
+                IconButton(onClick = { navController.navigate("HomeScreen") }) {
+                    androidx.compose.material3.Icon(
+                        imageVector = Icons.Default.Home,
+                        contentDescription = "Home",
+                        tint = Color.Unspecified
+                    )
+                }
+                IconButton(onClick = { navController.navigate("Search") }) {
+                    androidx.compose.material3.Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = "Search",
+                        tint = Color.Unspecified
+                    )
+                }
+                IconButton(onClick = { navController.navigate("Bookmark") }) {
+                    androidx.compose.material3.Icon(
+                        imageVector = Icons.Default.Bookmark,
+                        contentDescription = "Bookmark",
+                        tint = Color.Unspecified
+                    )
+                }
+                IconButton(onClick = { navController.navigate("ProfileScreen") }) {
+                    androidx.compose.material3.Icon(
+                        imageVector = Icons.Default.AccountCircle,
+                        contentDescription = "Profile",
+                        tint = Color.Unspecified
+                    )
+
+                }
+
+            }
+        }
+    )
+
 
 }
 
@@ -184,7 +242,7 @@ fun HomeTripItem(homeTripModel: HomeTripModel, navController: NavController) {
             modifier = Modifier
                 .clip(RoundedCornerShape(8.dp))
                 .clickable {
-                    navController.navigate("detail")
+                    navController.navigate("DetailScreen")
                 }
                 .height(200.dp)
                 .fillMaxWidth()
@@ -196,7 +254,7 @@ fun HomeTripItem(homeTripModel: HomeTripModel, navController: NavController) {
 
             Text(
                 text = homeTripModel.dayPerson,
-                fontFamily = FontFamily.Cursive,
+                fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.Normal,
                 fontSize = 12.sp,
             )
@@ -215,7 +273,7 @@ fun HomeTripItem(homeTripModel: HomeTripModel, navController: NavController) {
 
             Text(
                 text = homeTripModel.rating.toString(),
-                fontFamily = FontFamily.Cursive,
+                fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.Normal,
                 fontSize = 12.sp
             )
@@ -223,7 +281,7 @@ fun HomeTripItem(homeTripModel: HomeTripModel, navController: NavController) {
 
         Text(
             text = homeTripModel.title,
-            fontFamily = FontFamily.Cursive,
+            fontFamily = FontFamily.SansSerif,
             fontWeight = FontWeight.SemiBold,
             fontSize = 18.sp,
             lineHeight = 24.sp
@@ -236,21 +294,21 @@ fun HomeTripItem(homeTripModel: HomeTripModel, navController: NavController) {
 
 val tripListing = listOf<HomeTripModel>(
     HomeTripModel(
-        R.drawable.thailand,
+        R.drawable.bangkok,
         "5 Days / 2 Person",
         "View to wander about Thailand!",
         4.8f
     ),
 
     HomeTripModel(
-        R.drawable.kanchanaburi,
+        R.drawable.kanchanburi,
         "5 Days / 2 Person",
         "You cannot miss this place before Leaving Thailand",
         4.7f
     ),
 
     HomeTripModel(
-        R.drawable.ayutthaya,
+        R.drawable.ayutthya,
         "5 Days / 2 Person",
         "This is the Holiest place in Thailand",
         4.8f

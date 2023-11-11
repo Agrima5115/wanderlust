@@ -47,6 +47,7 @@ import androidx.navigation.NavController
 fun Bookmark(navController: NavController) {
     val bookmarkedPlaces = remember {
         mutableStateListOf(
+            Place("Bangkok", "Thailand", R.drawable.bangkok,"Thailand’s capital, is a large city known for ornate shrines and vibrant street life.","4.8"),
             Place("Paris", "France", R.drawable.paris,"a cultural hub of art and romance.","4.3"),
             Place("Sydney", "Australia", R.drawable.sydney,"Coastal beauty with iconic harbor landmarks.","4.0") ,
             Place("Tokyo", "Japan", R.drawable.tokyo,"Modern city fusing technology and tradition.","4.2"),
