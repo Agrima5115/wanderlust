@@ -134,6 +134,7 @@ fun SettingsScreen(navController: NavController) {
                 Text(text = "Dark Mode", style = MaterialTheme.typography.bodyMedium)
 
                 Spacer(modifier = Modifier.weight(1f))
+                Spacer(modifier = Modifier.width(60.dp))
 
                 // Switch for Dark Mode
                 Switch(
@@ -146,12 +147,8 @@ fun SettingsScreen(navController: NavController) {
 
                 Spacer(modifier = Modifier.width(8.dp))
 
-                // Right Arrow
-                Icon(
-                    imageVector = Icons.Default.ArrowForward,
-                    contentDescription = null,
-                    modifier = Modifier.size(24.dp)
-                )
+
+
             }
         }
 
