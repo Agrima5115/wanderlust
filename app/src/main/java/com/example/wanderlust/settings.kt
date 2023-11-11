@@ -84,7 +84,7 @@ fun SettingsScreen(navController: NavController) {
 
                 // User Name and Edit Details
                 Column {
-                    Text(text = "John Doe", style = MaterialTheme.typography.bodyMedium)
+                    Text(text = "Walter White", style = MaterialTheme.typography.bodyMedium)
                     Text(
                         text = "Edit personal details",
                         style = MaterialTheme.typography.bodySmall,
