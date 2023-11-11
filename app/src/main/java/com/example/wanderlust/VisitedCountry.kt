@@ -3,6 +3,8 @@ package com.example.wanderlust
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,6 +19,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowForward
@@ -52,37 +55,56 @@ fun VisitedCountry(navController: NavController) {
     val Australia = painterResource(R.drawable.australia)
     Scaffold(
         content = {
-            Column {
-                // Card 1
-                IconButton(onClick = { navController.navigate("ProfileScreen") }) {
-                    Icon(
-                        imageVector = Icons.Default.ArrowBack,
-                        contentDescription = null,
-                        modifier = Modifier.size(30.dp)
-                    )
-                }
-                Card(
+    Column {
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // Back button
+            IconButton(onClick = { navController.navigate("ProfileScreen") }) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = "Back",
+                    modifier = Modifier.size(30.dp)
+                )
+            }
+
+            // Heading "Visited Country"
+            Text(
+                text = "Visited Country",
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(start = 8.dp) // Adjust the start padding as needed
+            )
+        }
+        Spacer(modifier = Modifier.height(45.dp))
+        // Card 1
+
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(90.dp))
+                .clickable { /* Handle click event */ }
+        ) {
+            Row(
+                modifier = Modifier.padding(30.dp)
+            ) {
+                Image(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(90.dp))
-                        .clickable { /* Handle click event */ }
-                ) {
-                    Row(
-                        modifier = Modifier.padding(30.dp)
-                    ) {
-                        Image(
-                            modifier = Modifier
-                                .size(50.dp),
-                            painter = Japan,
-                            contentDescription = null
-                        )
-                        Spacer(modifier = Modifier.width(30.dp))
-                        Text(
-                            text = "Visited Country",
-                            style = MaterialTheme.typography.headlineSmall.copy(
-                                fontWeight = FontWeight.Bold
-                            ), // Make the text bold
-                        )
+                        .size(50.dp),
+                    painter = Japan,
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(30.dp))
+                Text(
+                    text = "Japan",
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontWeight = FontWeight.Bold
+                    ), // Make the text bold
+                )
 
 
                     }
@@ -90,29 +112,29 @@ fun VisitedCountry(navController: NavController) {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Card 2
-                Card(
+        // Card 2
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(90.dp))
+                .clickable { /* Handle click event */ }
+        ) {
+            Row(
+                modifier = Modifier.padding(30.dp)
+            ) {
+                Image(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(90.dp))
-                        .clickable { /* Handle click event */ }
-                ) {
-                    Row(
-                        modifier = Modifier.padding(30.dp)
-                    ) {
-                        Image(
-                            modifier = Modifier
-                                .size(45.dp),
-                            painter = Australia,
-                            contentDescription = null
-                        )
-                        Spacer(modifier = Modifier.width(30.dp))
-                        Text(
-                            text = "Visited City      ",
-                            style = MaterialTheme.typography.headlineSmall.copy(
-                                fontWeight = FontWeight.Bold
-                            ), // Make the text bold
-                        )
+                        .size(45.dp),
+                    painter = Australia,
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(30.dp))
+                Text(
+                    text = "Australia     ",
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontWeight = FontWeight.Bold
+                    ), // Make the text bold
+                )
 
 
                     }
@@ -120,29 +142,29 @@ fun VisitedCountry(navController: NavController) {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Card 3
-                Card(
+        // Card 3
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(90.dp))
+                .clickable { /* Handle click event */ }
+        ) {
+            Row(
+                modifier = Modifier.padding(30.dp)
+            ) {
+                Image(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(90.dp))
-                        .clickable { /* Handle click event */ }
-                ) {
-                    Row(
-                        modifier = Modifier.padding(30.dp)
-                    ) {
-                        Image(
-                            modifier = Modifier
-                                .size(50.dp),
-                            painter = UK,
-                            contentDescription = null
-                        )
-                        Spacer(modifier = Modifier.width(30.dp))
-                        Text(
-                            text = "Photo Gallery  ",
-                            style = MaterialTheme.typography.headlineSmall.copy(
-                                fontWeight = FontWeight.Bold
-                            ), // Make the text bold
-                        )
+                        .size(50.dp),
+                    painter = UK,
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(30.dp))
+                Text(
+                    text = "Unite Kingdom ",
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontWeight = FontWeight.Bold
+                    ), // Make the text bold
+                )
 
                     }
                 }
@@ -154,23 +176,23 @@ fun VisitedCountry(navController: NavController) {
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(90.dp))
 
-                ) {
-                    Row(
-                        modifier = Modifier.padding(30.dp)
-                    ) {
-                        Image(
-                            modifier = Modifier
-                                .size(50.dp),
-                            painter = USA,
-                            contentDescription = null
-                        )
-                        Spacer(modifier = Modifier.width(30.dp))
-                        Text(
-                            text = "Trips Map        ",
-                            style = MaterialTheme.typography.headlineSmall.copy(
-                                fontWeight = FontWeight.Bold
-                            ), // Make the text bold
-                        )
+        ) {
+            Row(
+                modifier = Modifier.padding(30.dp)
+            ) {
+                Image(
+                    modifier = Modifier
+                        .size(50.dp),
+                    painter = USA,
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(30.dp))
+                Text(
+                    text = "USA        ",
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontWeight = FontWeight.Bold
+                    ), // Make the text bold
+                )
 
 
                     }

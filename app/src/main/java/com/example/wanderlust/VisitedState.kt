@@ -19,6 +19,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Home
@@ -52,39 +53,55 @@ fun VisitedState(navController: NavController) {
     val queensland = painterResource(R.drawable.queensland)
     Scaffold(
         content = {
-            Column {
-                // Card 1
-                Spacer(modifier = Modifier.height(20.dp))
-                IconButton(onClick = { navController.navigate("ProfileScreen") }) {
-                    Icon(
-                        imageVector = Icons.Default.ArrowBack,
-                        contentDescription = null,
-                        modifier = Modifier.size(30.dp)
-                    )
-                }
-                Card(
+    Column {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // Back button
+            IconButton(onClick = { navController.navigate("ProfileScreen") }) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = "Back",
+                    modifier = Modifier.size(30.dp)
+                )
+            }
+
+            // Heading "Visited Country"
+            Text(
+                text = "Visited City",
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(start = 8.dp) // Adjust the start padding as needed
+            )
+        }
+        Spacer(modifier = Modifier.height(45.dp))
+        // Card 1
+
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(90.dp))
+                .clickable { /* Handle click event */ }
+        ) {
+            Row(
+                modifier = Modifier.padding(30.dp)
+            ) {
+                Image(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(90.dp))
-                        .clickable { /* Handle click event */ }
-                ) {
-                    Spacer(modifier = Modifier.height(20.dp))
-                    Row(
-                        modifier = Modifier.padding(30.dp)
-                    ) {
-                        Image(
-                            modifier = Modifier
-                                .size(50.dp),
-                            painter = tokyoo,
-                            contentDescription = null
-                        )
-                        Spacer(modifier = Modifier.width(30.dp))
-                        Text(
-                            text = "Visited Country",
-                            style = MaterialTheme.typography.headlineSmall.copy(
-                                fontWeight = FontWeight.Bold
-                            ), // Make the text bold
-                        )
+                        .size(50.dp),
+                    painter = tokyoo,
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(30.dp))
+                Text(
+                    text = "Tokyo",
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontWeight = FontWeight.Bold
+                    ), // Make the text bold
+                )
 
 
                     }
@@ -92,29 +109,29 @@ fun VisitedState(navController: NavController) {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Card 2
-                Card(
+        // Card 2
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(90.dp))
+                .clickable { /* Handle click event */ }
+        ) {
+            Row(
+                modifier = Modifier.padding(30.dp)
+            ) {
+                Image(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(90.dp))
-                        .clickable { /* Handle click event */ }
-                ) {
-                    Row(
-                        modifier = Modifier.padding(30.dp)
-                    ) {
-                        Image(
-                            modifier = Modifier
-                                .size(45.dp),
-                            painter = queensland,
-                            contentDescription = null
-                        )
-                        Spacer(modifier = Modifier.width(30.dp))
-                        Text(
-                            text = "Visited City      ",
-                            style = MaterialTheme.typography.headlineSmall.copy(
-                                fontWeight = FontWeight.Bold
-                            ), // Make the text bold
-                        )
+                        .size(45.dp),
+                    painter = queensland,
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(30.dp))
+                Text(
+                    text = "Queensland      ",
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontWeight = FontWeight.Bold
+                    ), // Make the text bold
+                )
 
 
                     }
@@ -122,29 +139,29 @@ fun VisitedState(navController: NavController) {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Card 3
-                Card(
+        // Card 3
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(90.dp))
+                .clickable { /* Handle click event */ }
+        ) {
+            Row(
+                modifier = Modifier.padding(30.dp)
+            ) {
+                Image(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(90.dp))
-                        .clickable { /* Handle click event */ }
-                ) {
-                    Row(
-                        modifier = Modifier.padding(30.dp)
-                    ) {
-                        Image(
-                            modifier = Modifier
-                                .size(50.dp),
-                            painter = england,
-                            contentDescription = null
-                        )
-                        Spacer(modifier = Modifier.width(30.dp))
-                        Text(
-                            text = "Photo Gallery  ",
-                            style = MaterialTheme.typography.headlineSmall.copy(
-                                fontWeight = FontWeight.Bold
-                            ), // Make the text bold
-                        )
+                        .size(50.dp),
+                    painter = england,
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(30.dp))
+                Text(
+                    text = "England  ",
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontWeight = FontWeight.Bold
+                    ), // Make the text bold
+                )
 
                     }
                 }
@@ -156,23 +173,23 @@ fun VisitedState(navController: NavController) {
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(90.dp))
 
-                ) {
-                    Row(
-                        modifier = Modifier.padding(30.dp)
-                    ) {
-                        Image(
-                            modifier = Modifier
-                                .size(50.dp),
-                            painter = alaska,
-                            contentDescription = null
-                        )
-                        Spacer(modifier = Modifier.width(30.dp))
-                        Text(
-                            text = "Trips Map        ",
-                            style = MaterialTheme.typography.headlineSmall.copy(
-                                fontWeight = FontWeight.Bold
-                            ), // Make the text bold
-                        )
+        ) {
+            Row(
+                modifier = Modifier.padding(30.dp)
+            ) {
+                Image(
+                    modifier = Modifier
+                        .size(50.dp),
+                    painter = alaska,
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(30.dp))
+                Text(
+                    text = "Alaska        ",
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontWeight = FontWeight.Bold
+                    ), // Make the text bold
+                )
 
 
                     }
