@@ -236,21 +236,21 @@ fun HomeTripItem(homeTripModel: HomeTripModel, navController: NavController) {
 
 val tripListing = listOf<HomeTripModel>(
     HomeTripModel(
-        R.drawable.thailand,
+        R.drawable.thai_detail,
         "5 Days / 2 Person",
         "View to wander about Thailand!",
         4.8f
     ),
 
     HomeTripModel(
-        R.drawable.kanchanaburi,
+        R.drawable.kanchanburi,
         "5 Days / 2 Person",
         "You cannot miss this place before Leaving Thailand",
         4.7f
     ),
 
     HomeTripModel(
-        R.drawable.ayutthaya,
+        R.drawable.ayutthya,
         "5 Days / 2 Person",
         "This is the Holiest place in Thailand",
         4.8f
