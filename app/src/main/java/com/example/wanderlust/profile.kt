@@ -36,6 +36,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -58,6 +59,7 @@ fun ProfileScreen(navController: NavController) {
     val galleryImage = painterResource(R.drawable.gallery)
     val mapImage = painterResource(R.drawable.map)
     val worldImage = painterResource(R.drawable.worldmap)
+    val settingsImage = painterResource(R.drawable.settings)
     val context = LocalContext.current
     Scaffold(
         content = {
@@ -241,7 +243,7 @@ fun ProfileScreen(navController: NavController) {
                             // Card 2
                             Card(
                                 modifier = Modifier
-                                    .fillMaxWidth()
+                                    .align(CenterHorizontally)
                                     .clip(RoundedCornerShape(90.dp))
                                     .clickable {
                                         navController.navigate("VisitedState")
@@ -344,6 +346,40 @@ fun ProfileScreen(navController: NavController) {
                                         modifier = Modifier.size(30.dp)
                                     )
                                 }
+                            }
+                        }
+                        Spacer(modifier = Modifier.height(16.dp))
+                        //card 5
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+
+                                .clickable {
+                                    navController.navigate("settings")
+                                }
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(10.dp)
+                            ) {
+                                Image(
+                                    modifier = Modifier
+                                        .size(45.dp),
+                                    painter = settingsImage,
+                                    contentDescription = null
+                                )
+                                Spacer(modifier = Modifier.width(30.dp))
+                                Text(
+                                    text = " Settings               ",
+                                    style = MaterialTheme.typography.headlineSmall.copy(
+                                        fontWeight = FontWeight.Bold
+                                    ),
+                                )
+                                Spacer(modifier = Modifier.width(38.dp))
+                                Icon(
+                                    imageVector = Icons.Default.ArrowForward,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(30.dp)
+                                )
                             }
                         }
                         Spacer(modifier = Modifier.height(48.dp))

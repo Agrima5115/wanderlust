@@ -162,9 +162,9 @@ fun HomeHeader() {
             )
 
             Text(
-                text = "Yindī t̂xnrạb s̄ū̀ pratheṣ̄thịy?",
+                text = "Explore. Dream. Discover.",
                 fontFamily = FontFamily.Cursive,
-                fontWeight = FontWeight.Light,
+                fontWeight = FontWeight.Normal,
                 fontSize = 18.sp,
                 lineHeight = 24.sp,
                 letterSpacing = ((-0.2).sp)
