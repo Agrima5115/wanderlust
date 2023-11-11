@@ -3,8 +3,11 @@ package com.example.wanderlust
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,6 +18,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,6 +26,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
@@ -42,6 +47,31 @@ fun VisitedCountry(navController: NavController)
     val Australia = painterResource(R.drawable.australia)
 
     Column {
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // Back button
+            IconButton(onClick = { navController.popBackStack() }) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = "Back",
+                    modifier = Modifier.size(30.dp)
+                )
+            }
+
+            // Heading "Visited Country"
+            Text(
+                text = "Visited Country",
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(start = 8.dp) // Adjust the start padding as needed
+            )
+        }
+        Spacer(modifier = Modifier.height(45.dp))
         // Card 1
 
         Card(
@@ -61,7 +91,7 @@ fun VisitedCountry(navController: NavController)
                 )
                 Spacer(modifier = Modifier.width(30.dp))
                 Text(
-                    text = "Visited Country",
+                    text = "Japan",
                     style = MaterialTheme.typography.headlineSmall.copy(
                         fontWeight = FontWeight.Bold
                     ), // Make the text bold
@@ -91,7 +121,7 @@ fun VisitedCountry(navController: NavController)
                 )
                 Spacer(modifier = Modifier.width(30.dp))
                 Text(
-                    text = "Visited City      ",
+                    text = "Australia     ",
                     style = MaterialTheme.typography.headlineSmall.copy(
                         fontWeight = FontWeight.Bold
                     ), // Make the text bold
@@ -121,7 +151,7 @@ fun VisitedCountry(navController: NavController)
                 )
                 Spacer(modifier = Modifier.width(30.dp))
                 Text(
-                    text = "Photo Gallery  ",
+                    text = "Unite Kingdom ",
                     style = MaterialTheme.typography.headlineSmall.copy(
                         fontWeight = FontWeight.Bold
                     ), // Make the text bold
@@ -149,7 +179,7 @@ fun VisitedCountry(navController: NavController)
                 )
                 Spacer(modifier = Modifier.width(30.dp))
                 Text(
-                    text = "Trips Map        ",
+                    text = "USA        ",
                     style = MaterialTheme.typography.headlineSmall.copy(
                         fontWeight = FontWeight.Bold
                     ), // Make the text bold

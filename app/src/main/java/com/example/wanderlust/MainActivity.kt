@@ -30,8 +30,6 @@ fun myapp(){
         composable("Bookmark"){ Bookmark(navController) }
         composable("ProfileScreen"){ProfileScreen(navController)}
 
-        composable("VisitedState"){VisitedState(navController)}
-
             composable("Search") {
                 // Include the Search composable here
                 Search(
@@ -40,6 +38,8 @@ fun myapp(){
                     navController
 
                 )}
+        composable("VisitedState"){VisitedState(navController)}
+        composable("VisitedCountry"){ VisitedCountry(navController) }
         composable("VisitedPlaces"){VisitedPlaces(navController)}
     }
 }
