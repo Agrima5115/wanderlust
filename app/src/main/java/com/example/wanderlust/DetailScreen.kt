@@ -1,4 +1,4 @@
-package com.example.travelapp.ui.features
+package com.example.wanderlust
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -15,19 +15,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.travelapp.ui.theme.OverPassFontFamily
 import com.google.accompanist.coil.rememberCoilPainter
 import com.google.accompanist.insets.statusBarsPadding
-import com.example.travelapp.R
 
 @Composable
 fun DetailScreen(navController: NavController) {
@@ -118,7 +116,7 @@ fun TripInfoContent() {
 
             Text(
                 text = "4.8 (2.5k reviews)",
-                fontFamily = OverPassFontFamily,
+                fontFamily = FontFamily.Cursive,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 12.sp
             )
@@ -129,7 +127,7 @@ fun TripInfoContent() {
 
         Text(
             text = "Exploring Thai Lifestyle!",
-            fontFamily = OverPassFontFamily,
+            fontFamily = FontFamily.Cursive,
             fontWeight = FontWeight.SemiBold,
             fontSize = 22.sp,
             lineHeight = 28.sp,
@@ -211,7 +209,7 @@ fun TripDayContent(day: TripDayData) {
         Text(
             text = day.title.uppercase(),
             fontSize = 14.sp,
-            fontFamily = OverPassFontFamily,
+            fontFamily = FontFamily.Cursive,
             fontWeight = FontWeight.ExtraBold,
             letterSpacing = 0.75.sp
         )
@@ -221,7 +219,7 @@ fun TripDayContent(day: TripDayData) {
         Text(
             text = day.detail,
             fontSize = 14.sp,
-            fontFamily = OverPassFontFamily,
+            fontFamily = FontFamily.Cursive,
             fontWeight = FontWeight.Light,
             lineHeight = 18.sp
         )
@@ -252,14 +250,14 @@ fun TripDataItem(imageVector: ImageVector, title: String, subtitle: String) {
             Text(
                 text = title,
                 fontSize = 12.sp,
-                fontFamily = OverPassFontFamily,
+                fontFamily = FontFamily.Cursive,
                 fontWeight = FontWeight.ExtraBold
             )
 
             Text(
                 text = subtitle,
                 fontSize = 14.sp,
-                fontFamily = OverPassFontFamily,
+                fontFamily = FontFamily.Cursive,
                 fontWeight = FontWeight.Normal
             )
         }
@@ -291,7 +289,7 @@ fun LocationChip(text: String) {
 
         Text(
             text = text,
-            fontFamily = OverPassFontFamily,
+            fontFamily = FontFamily.Cursive,
             fontWeight = FontWeight.SemiBold,
             fontSize = 12.sp,
             color = Color.Black

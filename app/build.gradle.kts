@@ -52,7 +52,7 @@ android {
 }
 
 dependencies {
-
+    val compose_version="1.5.4"
     implementation("com.google.firebase:firebase-auth:22.2.0")
     implementation("androidx.core:core-ktx:1.12.0")
     val navversion = "2.7.2"
@@ -82,7 +82,32 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.0")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    val compose_version="1.5.4"
+    implementation ("androidx.core:core-ktx:1.12.0")
+    implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation ("com.google.android.material:material:1.10.0")
+    implementation ("androidx.compose.ui:ui:$compose_version")
+    implementation ("androidx.compose.material:material:$compose_version")
+    implementation ("androidx.compose.ui:ui-tooling:$compose_version")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation ("androidx.activity:activity-compose:1.8.0")
+
+    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation ("androidx.compose.ui:ui-test-junit4:$compose_version")
+
+    // Navigation components for compose
+    implementation("androidx.navigation:navigation-compose:2.7.5")
+
+    // For statusbar & navigation bar padding/height/width
+    implementation ("com.google.accompanist:accompanist-insets:0.12.0")
+    implementation ("com.google.accompanist:accompanist-insets-ui:0.12.0")
+
+    // Image Loading Library
+    implementation ("com.google.accompanist:accompanist-coil:0.12.0")
+
+    // Material extended icons
+    implementation ("androidx.compose.material:material-icons-extended:$compose_version")
+
     implementation ("androidx.compose.material:material-icons-extended:$compose_version")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
