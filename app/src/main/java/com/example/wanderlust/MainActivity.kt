@@ -41,6 +41,9 @@ fun myapp(){
 
                 )}
         composable("VisitedPlaces"){VisitedPlaces(navController)}
+        composable("VisitedCountry"){VisitedCountry(navController)}
+        composable("VisitedState"){VisitedState(navController)}
+
     }
 }
 

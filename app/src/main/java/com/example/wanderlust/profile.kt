@@ -69,11 +69,13 @@ fun ProfileScreen(navController: NavController) {
                             modifier = Modifier
                                 .padding(horizontal = 16.dp)
                         ) {
-                            Icon(
-                                imageVector = Icons.Default.ArrowBack,
-                                contentDescription = null,
-                                modifier = Modifier.size(30.dp)
-                            )
+                            IconButton(onClick = { navController.navigate("Search") }) {
+                                Icon(
+                                    imageVector = Icons.Default.ArrowBack,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(30.dp)
+                                )
+                            }
                             // Profile picture
                             Box(
                                 modifier = Modifier
@@ -292,7 +294,12 @@ fun ProfileScreen(navController: NavController) {
                                     .fillMaxWidth()
                                     .clip(RoundedCornerShape(90.dp))
                                     .clickable {
-                                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://maps.google.com/")))
+                                        context.startActivity(
+                                            Intent(
+                                                Intent.ACTION_VIEW,
+                                                Uri.parse("https://maps.google.com/")
+                                            )
+                                        )
                                     }
                             ) {
                                 Row(
