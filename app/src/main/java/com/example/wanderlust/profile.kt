@@ -361,6 +361,7 @@ fun ProfileScreen(navController: NavController) {
                             Row(
                                 modifier = Modifier.padding(10.dp)
                             ) {
+                                Spacer(modifier = Modifier.width(40.dp))
                                 Image(
                                     modifier = Modifier
                                         .size(45.dp),
@@ -369,7 +370,7 @@ fun ProfileScreen(navController: NavController) {
                                 )
                                 Spacer(modifier = Modifier.width(30.dp))
                                 Text(
-                                    text = " Settings               ",
+                                    text = "Settings               ",
                                     style = MaterialTheme.typography.headlineSmall.copy(
                                         fontWeight = FontWeight.Bold
                                     ),
