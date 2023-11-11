@@ -1,6 +1,5 @@
-package com.example.travelapp.ui.features
+package com.example.wanderlust
 
-import com.example.travelapp.R
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -21,12 +20,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.travelapp.ui.theme.OverPassFontFamily
 import com.google.accompanist.coil.rememberCoilPainter
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
@@ -46,7 +45,7 @@ fun HomeScreen(navController: NavController) {
             Text(
                 text = "THAI WEEK SPECIAL",
                 color = Color.Black,
-                fontFamily = OverPassFontFamily,
+                fontFamily = FontFamily.Cursive,
                 fontWeight = FontWeight.Bold,
                 fontSize = 14.sp,
                 modifier = Modifier.padding(
@@ -98,7 +97,7 @@ fun HomeHeader() {
 
             Text(
                 text = "Hello, Wanderer!",
-                fontFamily = OverPassFontFamily,
+                fontFamily = FontFamily.Cursive,
                 fontWeight = FontWeight.Bold,
                 fontSize = 38.sp,
                 letterSpacing = (-1).sp
@@ -106,7 +105,7 @@ fun HomeHeader() {
 
             Text(
                 text = "Yindī t̂xnrạb s̄ū̀ pratheṣ̄thịy?",
-                fontFamily = OverPassFontFamily,
+                fontFamily = FontFamily.Cursive,
                 fontWeight = FontWeight.Light,
                 fontSize = 18.sp,
                 lineHeight = 24.sp,
@@ -170,7 +169,7 @@ data class HomeTripModel(
 )
 
 @Composable
-fun HomeTripItem(homeTripModel: HomeTripModel,navController: NavController) {
+fun HomeTripItem(homeTripModel: HomeTripModel, navController: NavController) {
 
     Column(
         modifier = Modifier
@@ -197,7 +196,7 @@ fun HomeTripItem(homeTripModel: HomeTripModel,navController: NavController) {
 
             Text(
                 text = homeTripModel.dayPerson,
-                fontFamily = OverPassFontFamily,
+                fontFamily = FontFamily.Cursive,
                 fontWeight = FontWeight.Normal,
                 fontSize = 12.sp,
             )
@@ -216,7 +215,7 @@ fun HomeTripItem(homeTripModel: HomeTripModel,navController: NavController) {
 
             Text(
                 text = homeTripModel.rating.toString(),
-                fontFamily = OverPassFontFamily,
+                fontFamily = FontFamily.Cursive,
                 fontWeight = FontWeight.Normal,
                 fontSize = 12.sp
             )
@@ -224,7 +223,7 @@ fun HomeTripItem(homeTripModel: HomeTripModel,navController: NavController) {
 
         Text(
             text = homeTripModel.title,
-            fontFamily = OverPassFontFamily,
+            fontFamily = FontFamily.Cursive,
             fontWeight = FontWeight.SemiBold,
             fontSize = 18.sp,
             lineHeight = 24.sp

@@ -48,7 +48,6 @@ fun Bookmark(navController: NavController) {
     val bookmarkedPlaces = remember {
         mutableStateListOf(
             Place("Paris", "France", R.drawable.paris,"a cultural hub of art and romance.","4.3"),
-            Place("London", "UK", R.drawable.london,"Diverse and historical city with iconic landmarks","4.2"),
             Place("Sydney", "Australia", R.drawable.sydney,"Coastal beauty with iconic harbor landmarks.","4.0") ,
             Place("Tokyo", "Japan", R.drawable.tokyo,"Modern city fusing technology and tradition.","4.2"),
         Place("New York", "USA", R.drawable.newyork," Bustling metropolis known for diversity.","4.0")

@@ -69,11 +69,32 @@ fun ProfileScreen(navController: NavController) {
                             modifier = Modifier
                                 .padding(horizontal = 16.dp)
                         ) {
-                            Icon(
-                                imageVector = Icons.Default.ArrowBack,
-                                contentDescription = null,
-                                modifier = Modifier.size(30.dp)
-                            )
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp),
+                                verticalAlignment = Alignment.Top
+
+
+                            ) {
+                                // Back button
+                                IconButton(onClick = { navController.popBackStack() }) {
+                                    Icon(
+                                        imageVector = Icons.Default.ArrowBack,
+                                        contentDescription = "Back",
+                                        modifier = Modifier.size(30.dp)
+                                    )
+                                }
+
+                                // Heading "Visited Country"
+                                Text(
+                                    text = "Profile",
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    fontWeight = FontWeight.Bold,
+                                    modifier = Modifier.padding(start = 8.dp) // Adjust the start padding as needed
+                                )
+                            }
+
                             // Profile picture
                             Box(
                                 modifier = Modifier
@@ -215,7 +236,6 @@ fun ProfileScreen(navController: NavController) {
                                 }
                             }
 
-
                             Spacer(modifier = Modifier.height(16.dp))
 
                             // Card 2
@@ -259,7 +279,7 @@ fun ProfileScreen(navController: NavController) {
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .clip(RoundedCornerShape(90.dp))
-                                    .clickable { /* Handle click event */ }
+                                    .clickable { navController.navigate("VisitedPlaces") }
                             ) {
                                 Row(
                                     modifier = Modifier.padding(30.dp)
@@ -293,7 +313,12 @@ fun ProfileScreen(navController: NavController) {
                                     .fillMaxWidth()
                                     .clip(RoundedCornerShape(90.dp))
                                     .clickable {
-                                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://maps.google.com/")))
+                                        context.startActivity(
+                                            Intent(
+                                                Intent.ACTION_VIEW,
+                                                Uri.parse("https://maps.google.com/")
+                                            )
+                                        )
                                     }
                             ) {
                                 Row(
