@@ -355,7 +355,7 @@ fun ProfileScreen(navController: NavController) {
                                 .fillMaxWidth()
 
                                 .clickable {
-                                    navController.navigate("settings")
+                                    navController.navigate("SettingsScreen")
                                 }
                         ) {
                             Row(
