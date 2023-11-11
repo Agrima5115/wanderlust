@@ -69,13 +69,32 @@ fun ProfileScreen(navController: NavController) {
                             modifier = Modifier
                                 .padding(horizontal = 16.dp)
                         ) {
-                            IconButton(onClick = { navController.navigate("Search") }) {
-                                Icon(
-                                    imageVector = Icons.Default.ArrowBack,
-                                    contentDescription = null,
-                                    modifier = Modifier.size(30.dp)
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp),
+                                verticalAlignment = Alignment.Top
+
+
+                            ) {
+                                // Back button
+                                IconButton(onClick = { navController.popBackStack() }) {
+                                    Icon(
+                                        imageVector = Icons.Default.ArrowBack,
+                                        contentDescription = "Back",
+                                        modifier = Modifier.size(30.dp)
+                                    )
+                                }
+
+                                // Heading "Visited Country"
+                                Text(
+                                    text = "Profile",
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    fontWeight = FontWeight.Bold,
+                                    modifier = Modifier.padding(start = 8.dp) // Adjust the start padding as needed
                                 )
                             }
+
                             // Profile picture
                             Box(
                                 modifier = Modifier
